@@ -1,0 +1,217 @@
+.city_menu_card {
+    display: flex;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 1em 2em;
+    @media all and (min-width: 440px) and (max-width: 600px) {
+        margin: 1em 5.5em;
+    }
+    @media all and (min-width: 601px) and (max-width: 768px) {
+        margin: 1em 7em;
+    }
+    @media all and (min-width: 769px) and (max-width: 1024px) {
+        margin: 2em 9em;
+    }
+    @media all and (min-width: 1024px) {
+        margin: 2em 10em;
+    }
+    .city_menu_img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .city_menu_name {
+        margin: auto;
+        color: white;
+        font-size: 2.5em;
+        text-shadow:2px 2px 2px #000000;
+        z-index: 10;
+    }
+}
+
+.menu_header {
+    background-color: #64c8d0;
+    color: white;
+    height: 15vh;
+    width: 100vw;
+    position: fixed;
+    top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 11;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+    .country_icon {
+        width: 4em;
+        height: auto;
+        position: absolute;
+        left: 1em;
+        @media all and (min-width: 769px) and (max-width: 1024px) {
+            width: 5em;
+        }
+        @media all and (min-width: 1024px) {
+            width: 6em;
+        }
+    }
+    .header_text {
+        text-align: center;
+        h5,
+        p,
+        h6 {
+            margin: 0;
+            font-family: $mainfont;
+        }
+        h5 {
+            @media all and (min-width: 769px) and (max-width: 1024px) {
+                font-size: 2.5em;
+            }
+            @media all and (min-width: 1024px) {
+                font-size: 3.5em;
+            }
+        }
+        p {
+            @media all and (min-width: 769px) and (max-width: 1024px) {
+                font-size: 2em;
+            }
+            @media all and (min-width: 1024px) {
+                font-size: 3em;
+            }
+        }
+        
+    }
+}
+.menu_box {
+    margin-top: 27vh;
+}
+.menu_click {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 85vw;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    height: auto;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 60vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 40vw;
+    }
+    .city_menu_food,
+    .city_menu_acc,
+    .city_menu_places,
+    .city_menu_cost {
+        width: 40%;
+        height: 40%;
+        color: white;
+        font-size: 1em;
+        display: flex;
+        margin-bottom: 1em;
+        padding: 1em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $mainfont;
+    }
+    .city_menu_food {
+        background-color: #3fb179;
+    }
+    .city_menu_acc {
+        background-color: #3dc8d9;
+    }
+    .city_menu_places {
+        background-color: #f0c545;
+    }
+    .city_menu_cost {
+        background-color: #ef5f48;
+    }
+}
+
+.headerAbout {
+    display: none;
+    height: 1em;
+    width: 100vw;
+    background-color: #3e7b80;
+    overflow: hidden;
+    top: 26.5vh;
+    position: fixed;
+    z-index: 100;
+    span {
+        color: white;
+        display: block;
+        margin: 0 auto;
+        width: 70%;
+    }
+}
+.city_description {
+    height: 10em;
+    overflow: scroll;
+    display: block;
+    animation-duration: 0.5s;
+    animation-name: dropdown;
+}
+@keyframes dropdown {
+    from {
+      height: 2em;
+    }
+    to {
+      height: 10em;
+    }
+}
+.dropdown {
+    margin-top: 50vh;
+    animation-duration: 0.5s;
+    animation-name: dropcontent;
+}
+@keyframes dropcontent {
+    from {
+      margin-top: 27vh;
+    }
+    to {
+    margin-top: 50vh;
+    }
+}
+.expand {
+    height: 1.2em;
+    line-height: 1.2em;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    text-align: center;
+    color: white;
+    background-color: #4c979d;
+    top: 24vh;
+    cursor: pointer;
+    span {
+        border-radius: 15%;
+        padding: .3em;
+        background-color: #476c99;
+        z-index: 1000;
+    }
+    .fas.fa-arrow-circle-down.expand_arrow,
+    .fas.fa-arrow-circle-up.expand_arrow {
+        font-size: 1em;
+    }
+    
+}
+.headerAbout,
+.expand {
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+}

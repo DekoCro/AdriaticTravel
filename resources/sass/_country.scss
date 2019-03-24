@@ -1,0 +1,133 @@
+.country_card {
+    display: flex;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 1em 2em;
+    @media all and (min-width: 440px) and (max-width: 600px) {
+        margin: 1em 5em;
+    }
+    @media all and (min-width: 601px) and (max-width: 768px) {
+        margin: 1em 7em;
+    }
+    @media all and (min-width: 769px) and (max-width: 1024px) {
+        margin: 2em 9em;
+    }
+    @media all and (min-width: 1024px) {
+        margin: 2em 10em;
+    }
+}
+
+.country_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.country_name {
+    margin: auto;
+    color: white;
+    text-shadow:2px 2px 2px #000000;
+    z-index: 10;
+    text-align: center;
+    &:hover {
+        text-decoration: none;
+        color: white;
+    }
+}
+.country_box {
+    margin-top: 26vh;
+}
+.title {
+    font-size: 2.5em;
+}
+.slogan {
+    z-index: 10;
+    color: white;
+    font-size: 1em;
+}
+
+// --ROOT COMPONENT--
+.background {
+    background-color: white;
+    margin: 0;
+    height: 100%;
+}
+
+// --HEADER--
+.fas {
+    font-size: 4em;
+    margin-top: .2em;
+    text-shadow: 3px 4px 0px #0000002a;
+}
+.header {
+    background-color: #64c8d0;
+    color: white;
+    height: 15vh;
+    width: 100vw;
+    position: fixed;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 11;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+}
+.headerShadow {
+    height: 1em;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    text-align: center;
+    color: white;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+}
+.headerShadow:nth-child(odd) {
+    background-color: #4c979d;
+    top: 24vh;
+}
+.headerShadow:nth-child(even) {
+    background-color: #3e7b80;
+    top: 26vh;
+    @media all and (min-width: 769px) {
+        width: 60vw;
+        top: 25.5vh;
+    }
+}
+
+//--NAVIGATION BAR
+#fixed_bar {
+    position: fixed;
+    color: black;
+    background-color: white;
+    z-index: 100;
+    height: 10vh;
+    margin: 0 auto;
+    width: 100vw;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+    .mini_logo {
+        width: 7em;
+        height: auto;
+     }
+}

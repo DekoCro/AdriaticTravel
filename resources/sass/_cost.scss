@@ -1,0 +1,63 @@
+.cost_card {
+    margin-top: 2em;
+    font-family: $mainfont;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        margin-top: 3em;
+    }
+    @media all and (min-width: 769px) {
+        margin-top: 4em;
+    }
+    .currency_box {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: .5em auto 0 auto;
+        h3 {
+            font-size: 1em;
+            .currency_heading {
+                color: black;
+                font-size: 1.2em;
+            }
+            .country_currency {
+                color: gray;
+            }   
+        }
+    }
+    h2 {
+        text-align: center;
+    }
+    section {
+        width: 90%;
+        margin: 0 auto;
+        div {
+            padding: .5em;
+            margin-bottom: .75em;
+            border-radius: 2%;
+            -webkit-box-shadow: 1px 1px 6px 2px rgba(176,173,176,1);
+            -moz-box-shadow: 1px 1px 6px 2px rgba(176,173,176,1);
+            box-shadow: 1px 1px 6px 2px rgba(176,173,176,1);
+            h3 {
+                font-size: 1.1em;
+                text-decoration: underline;
+            }
+            h6 {
+                font-size: .9em;
+            }
+        }
+    }
+}
+.cost_header {
+    background-color: #ef5f48;
+    color: white;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+}

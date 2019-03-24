@@ -1,0 +1,120 @@
+//header
+.fas {
+    font-size: 4em;
+    margin-top: .2em;
+    text-shadow: 3px 4px 0px #0000002a;
+}
+.header_city {
+    background-color: #64c8d0;
+    color: white;
+    height: 15vh;
+    width: 100vw;
+    position: fixed;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 11;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+    @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+}
+.headerShadow {
+    height: 1em;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    @media all and (min-width: 480px) and (max-width: 768px) {
+        width: 80vw;
+    }
+      @media all and (min-width: 769px) {
+        width: 60vw;
+    }
+}
+.headerShadow:nth-child(odd) {
+    background-color: #4c979d;
+    top: 24vh;
+}
+.headerShadow:nth-child(even) {
+    background-color: #3e7b80;
+    top: 26vh;
+}
+
+//CITY CARD
+
+.city_card {
+    width: 70vw;
+    margin: 0 auto;
+    padding: 1.7em;
+    margin-bottom: 1em;
+    border-radius: 2em;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+    position: relative;
+}
+
+.city_box {
+    margin-top: 30vh;
+}
+
+.city_link {
+    font-family: 'Exo', sans-serif;
+    color: black;
+    font-weight: 900;
+    font-size: 1.4em;
+    padding-left: 1.4em;
+}
+
+.small_city_img_bg {
+    position: absolute;
+    width: 5.5em;
+    height: 5.5em;
+    background-color: #1396D0;
+    border-radius: 50%;
+    left: -2.275em;
+    bottom: 0.05em;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+
+}
+
+.city_img {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    background-color: #1396D0;
+    border: 6px solid #13B3D0;
+    border-radius: 50%;
+    left: -2.05em;
+    bottom: 0.3em;
+    z-index: 10;
+}
+
+.city_arrow_link {
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    right: -1em;
+    z-index: 10;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    
+}
+
+.fa-chevron-right {
+    position: absolute;
+    color:rgb(192, 31, 31);
+    font-size: 2em;
+    text-shadow: none;
+    left: 0.3em;
+}
