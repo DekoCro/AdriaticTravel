@@ -12,7 +12,7 @@ export default class Countries extends Component {
         }
     }
     componentDidMount() {
-       axios.get(`http://final.localhost:8080/api/countries`)
+       axios.get(`/api/countries`)
         .then(response => {
             this.setState({
                 isLoaded: true,

@@ -18,7 +18,7 @@ export default class Restaurant extends Component {
     componentDidMount() {
         const cityId = this.props.match.params.id;
         const foodId = this.props.match.params.restaurant_id;
-        axios.get(`http://final.localhost:8080/api/cities/${cityId}/food/${foodId}`)
+        axios.get(`/api/cities/${cityId}/food/${foodId}`)
         .then(response => {
             this.setState({
                 isLoaded: true,
@@ -28,7 +28,7 @@ export default class Restaurant extends Component {
         })
         .catch(error => console.log(error))
 
-        axios.get(`http://final.localhost:8080/api/cities/${cityId}/food/${foodId}/reviews`)
+        axios.get(`/api/cities/${cityId}/food/${foodId}/reviews`)
         .then(response => {
             this.setState({
                 isLoaded: true,
@@ -107,7 +107,7 @@ export default class Restaurant extends Component {
                                     })
                                 }} value={this.state.title} placeholder="Title (ex.excellent, good, terrible)"/> 
                             </div>    
-                            <textarea name="review" type="text" rows="5" cols="40" onChange={event => {
+                            <textarea name="review" type="text" rows="5" cols="38" onChange={event => {
                                 this.setState({
                                     text_value: event.target.value
                                 })
@@ -122,12 +122,6 @@ export default class Restaurant extends Component {
         }
 
         let review = "";
-        // let user_star = [];
-        // for(let i = 0; i < this.state.rating_value; i++) {
-        //     user_star.push(
-        //     <i className="fa fa-star user_golden_star" key={i}></i>
-        //     )
-        // }
         if(this.state.isLoaded) {
             let user_ex = [];
             this.state.reviews.forEach(item => {

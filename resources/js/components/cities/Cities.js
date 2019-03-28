@@ -22,7 +22,7 @@ export default class Cities extends Component {
 
     componentDidMount() {
         const countryId = this.props.match.params.id;
-        axios.get(`http://final.localhost:8080/api/countries/${countryId}/cities`)
+        axios.get(`/api/countries/${countryId}/cities`)
         .then(response => {
             console.log(response)
             this.setState({

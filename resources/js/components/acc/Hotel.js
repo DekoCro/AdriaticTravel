@@ -18,7 +18,7 @@ export default class Hotel extends Component {
     componentDidMount() {
         const cityId = this.props.match.params.id;
         const accId = this.props.match.params.hotel_id;
-        axios.get(`http://final.localhost:8080/api/cities/${cityId}/accomodation/${accId}`)
+        axios.get(`/api/cities/${cityId}/accomodation/${accId}`)
         .then(response => {
             this.setState({
                 isLoaded: true,
@@ -27,7 +27,7 @@ export default class Hotel extends Component {
         })
         .catch(error => console.log(error))
         
-        axios.get(`http://final.localhost:8080/api/cities/${cityId}/accomodation/${accId}/reviews`)
+        axios.get(`/api/cities/${cityId}/accomodation/${accId}/reviews`)
         .then(response => {
             this.setState({
                 isLoaded: true,
@@ -103,7 +103,7 @@ export default class Hotel extends Component {
                                     })
                                 }} value={this.state.title} placeholder="Title ex.excellent, good, terrible"/> 
                             </div>    
-                            <textarea name="review" type="text" rows="5" cols="40" onChange={event => {
+                            <textarea name="review" type="text" rows="5" cols="38" onChange={event => {
                                 this.setState({
                                     text_value: event.target.value
                                 })

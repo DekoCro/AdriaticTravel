@@ -12,7 +12,7 @@ export default class City extends Component {
     }
     componentDidMount() {
         const cityId = this.props.match.params.id;
-        axios.get(`http://final.localhost:8080/api/cities/${cityId}`)
+        axios.get(`/api/cities/${cityId}`)
         .then(response => {
             this.setState({
                 isLoaded: true,

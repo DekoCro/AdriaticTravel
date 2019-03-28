@@ -14,7 +14,7 @@ export default class Food extends Component {
     
     componentDidMount() {
         const cityId = this.props.match.params.id;
-        axios.get(`http://final.localhost:8080/api/cities/${cityId}/accomodation`)
+        axios.get(`/api/cities/${cityId}/accomodation`)
         .then(response => {
             this.setState({
                 isLoaded: true,

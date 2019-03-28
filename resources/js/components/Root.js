@@ -10,16 +10,9 @@ import Hotel from './acc/Hotel';
 import Places from './places/Places';
 import Cost from './cost/Cost';
 import Citymenu from './citymenu/Citymenu';
-import Axios from 'axios';
 
 export default class Root extends Component {
 
-  // componentDidMount() {
-  //   axios.get('http://final.localhost:8080/api/user')
-  //   .then(r => {
-  //     console.log(r.data)
-  //   })
-  // }
     
     render() {
         return (

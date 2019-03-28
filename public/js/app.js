@@ -65907,8 +65907,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _places_Places__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./places/Places */ "./resources/js/components/places/Places.js");
 /* harmony import */ var _cost_Cost__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cost/Cost */ "./resources/js/components/cost/Cost.js");
 /* harmony import */ var _citymenu_Citymenu__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./citymenu/Citymenu */ "./resources/js/components/citymenu/Citymenu.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_12__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65940,7 +65938,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var Root =
 /*#__PURE__*/
 function (_Component) {
@@ -65954,12 +65951,6 @@ function (_Component) {
 
   _createClass(Root, [{
     key: "render",
-    // componentDidMount() {
-    //   axios.get('http://final.localhost:8080/api/user')
-    //   .then(r => {
-    //     console.log(r.data)
-    //   })
-    // }
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "background"
@@ -66071,7 +66062,7 @@ function (_Component) {
       var _this2 = this;
 
       var cityId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation")).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/accomodation")).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -66205,7 +66196,7 @@ function (_Component) {
 
       var cityId = this.props.match.params.id;
       var accId = this.props.match.params.hotel_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation/").concat(accId)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/accomodation/").concat(accId)).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -66213,7 +66204,7 @@ function (_Component) {
       }).catch(function (error) {
         return console.log(error);
       });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation/").concat(accId, "/reviews")).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/accomodation/").concat(accId, "/reviews")).then(function (response) {
         _this2.setState({
           isLoaded: true,
           reviews: response.data
@@ -66310,7 +66301,7 @@ function (_Component) {
           name: "review",
           type: "text",
           rows: "5",
-          cols: "40",
+          cols: "38",
           onChange: function onChange(event) {
             _this3.setState({
               text_value: event.target.value
@@ -66451,7 +66442,7 @@ function (_Component) {
       var _this2 = this;
 
       var countryId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/countries/".concat(countryId, "/cities")).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/countries/".concat(countryId, "/cities")).then(function (response) {
         console.log(response);
 
         _this2.setState({
@@ -66635,7 +66626,7 @@ function (_Component) {
       var _this2 = this;
 
       var cityId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId)).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -66800,7 +66791,7 @@ function (_Component) {
       var _this2 = this;
 
       var cityId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId)).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -66919,7 +66910,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/countries").then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/countries").then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -67041,7 +67032,7 @@ function (_Component) {
       var _this2 = this;
 
       var cityId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/food")).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/food")).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -67175,7 +67166,7 @@ function (_Component) {
 
       var cityId = this.props.match.params.id;
       var foodId = this.props.match.params.restaurant_id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/food/").concat(foodId)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/food/").concat(foodId)).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
@@ -67185,7 +67176,7 @@ function (_Component) {
       }).catch(function (error) {
         return console.log(error);
       });
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/food/").concat(foodId, "/reviews")).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/food/").concat(foodId, "/reviews")).then(function (response) {
         _this2.setState({
           isLoaded: true,
           reviews: response.data
@@ -67286,7 +67277,7 @@ function (_Component) {
           name: "review",
           type: "text",
           rows: "5",
-          cols: "40",
+          cols: "38",
           onChange: function onChange(event) {
             _this3.setState({
               text_value: event.target.value
@@ -67306,12 +67297,7 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
-      var review = ""; // let user_star = [];
-      // for(let i = 0; i < this.state.rating_value; i++) {
-      //     user_star.push(
-      //     <i className="fa fa-star user_golden_star" key={i}></i>
-      //     )
-      // }
+      var review = "";
 
       if (this.state.isLoaded) {
         var user_ex = [];
@@ -67411,7 +67397,7 @@ function (_Component) {
       var _this2 = this;
 
       var cityId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/places")).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/cities/".concat(cityId, "/places")).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
