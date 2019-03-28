@@ -34,6 +34,7 @@ export default class City extends Component {
                             <h3><span className="currency_heading">{item.name}</span><br /><span className="country_currency">{item.country_name}</span></h3>
                             <h3><span className="currency_heading">Currency:</span><br /><span className="country_currency">{item.country_currency}</span></h3>
                         </div>
+                        <hr />
                         <h2>Daily Cost</h2>
                         <section>
                             <div>
@@ -53,7 +54,7 @@ export default class City extends Component {
             });
             content = countries;
         } else {
-            content = "Loading!";
+            content = <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>;
         }
         
         return (

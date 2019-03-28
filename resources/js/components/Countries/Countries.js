@@ -27,14 +27,14 @@ export default class Countries extends Component {
             let countries = [];
             this.state.items.forEach(item => {
                 countries.push(
-                    <div className="country_card"key={item.id}>
+                    <div className="country_card" key={item.id}>
                         <img className="country_img" src={`/img/countries/${item.image}`} />
                         <Link className="country_name"  to={`/countries/${item.id}/cities`}><span className="title">{item.name}</span><br /><span className="slogan">{item.slogan}</span></Link>
                     </div>)
             });
             content = countries;
         } else {
-            content = "Loading!";
+            content = <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>;
         }
         
         return (

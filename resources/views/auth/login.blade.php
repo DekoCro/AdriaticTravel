@@ -5,17 +5,14 @@
 <main class="logo-box">
 
     <img src="{{ asset('img/logo-image.png') }}" alt=""/>
-    {{--
-    <h1>Travel</h1>
-    <h2>Adriatic</h2> --}}
     
 </main>
 
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('login') }}" id="complete_login_form">
     @csrf
     
     <section class="user-data">
-        <h3 class="login_instructions">Click <span class="click_to_login">here</span> to login<br></h3>
+        <h3 class="login_instructions">Click <span class="click_to_login hvr-grow">here</span> to login<br></h3>
         <div class="login_box">
             <input id="email-login" type="email" class="email_btn form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Enter your email"> 
     

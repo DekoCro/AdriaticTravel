@@ -13,7 +13,8 @@ class City extends Model
         'country_filename',
         'country_population',
         'country_quote',
-        'country_currency'
+        'country_currency',
+        'country_description'
     ];
 
     public function food()
@@ -69,5 +70,9 @@ class City extends Model
     public function getCountryCurrencyAttribute()
     {
         return $this->country->currency;
+    }
+    public function getCountryDescriptionAttribute()
+    {
+        return $this->country->description;
     }
 }

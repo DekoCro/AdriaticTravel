@@ -1,77 +1,115 @@
-//header
-.fas {
-    font-size: 4em;
-    margin-top: .2em;
-    text-shadow: 3px 4px 0px #0000002a;
-}
-.header_city {
-    background-color: #64c8d0;
+// HEADER
+.headerAbout {
     color: white;
-    height: 15vh;
-    width: 100vw;
-    position: fixed;
-    top: 10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    z-index: 11;
-    @media all and (min-width: 480px) and (max-width: 768px) {
-        width: 80vw;
+    .country_stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        div {
+            text-align: center;
+            width: 60%;
+            .dropdown_heading {
+                margin: 0;
+                color: black;
+                font-size: .7em;
+            }
+            span {
+                margin: 0;
+                i {
+                    font-size: 1em;
+                }
+            }
+        }
     }
-    @media all and (min-width: 769px) {
-        width: 60vw;
+    .adri_logo {
+        display: block;
+        width: 9em;
+        margin: 0 auto;
     }
-}
-.headerShadow {
-    height: 1em;
-    width: 100vw;
-    position: fixed;
-    z-index: 100;
-    @media all and (min-width: 480px) and (max-width: 768px) {
-        width: 80vw;
+    .country_facts {
+        width: 80%;
+        margin: 1em auto;
+        border-radius: 5px;
+        color: black;
+        
+        padding: 2em 1em;
+        padding-top: 0em;
     }
-      @media all and (min-width: 769px) {
-        width: 60vw;
+    .extended_heading {
+        padding: 0.5em;
+        font-size: 1.4em;
+        margin: 0 auto;
+        text-align: center;
+
+        .descr {
+            width: 80%;
+            margin: 1em auto;
+            box-shadow: 0px 0px 4px 0px #000000;
+            border-radius: 5px;
+            color: black;
+            background-color: white;
+            padding: 2em 1em;
+            padding-top: 0em;
+        }
+        
     }
-}
-.headerShadow:nth-child(odd) {
-    background-color: #4c979d;
-    top: 24vh;
-}
-.headerShadow:nth-child(even) {
-    background-color: #3e7b80;
-    top: 26vh;
+    
 }
 
 //CITY CARD
-
+.city_box {
+    margin-top: 30vh;
+    border: none;
+    min-height: 60vh;
+}
 .city_card {
-    width: 70vw;
+    display: flex;
+    width: 60%;
     margin: 0 auto;
     padding: 1.7em;
-    margin-bottom: 1em;
+    background-color: white;
+    transform: scale(.7);
+    transition: 0.5s;
+    margin-bottom: 2em;
     border-radius: 2em;
     -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
     position: relative;
+
+    &.city-large{
+        transform: none;
+        transition: 0.5s;
+    }
+    &.city-medium{
+        transform: none;
+        transition: 0.5s;
+        transform: scale(.5);
+    }
 }
 
-.city_box {
-    margin-top: 30vh;
+.city_card:nth-child(odd) {
+    flex-direction: row-reverse;
 }
-
-.city_link {
+.city_link_left {
     font-family: 'Exo', sans-serif;
-    color: black;
+    color:#605D5D;
     font-weight: 900;
     font-size: 1.4em;
     padding-left: 1.4em;
 }
 
-.small_city_img_bg {
+.city_link_right{
+    font-family: 'Exo', sans-serif;
+    color: #605D5D;
+    font-weight: 900;
+    font-size: 1.4em;
+    padding-right: 1.7em;
+}
+
+.city_img_bg_left {
     position: absolute;
     width: 5.5em;
     height: 5.5em;
@@ -84,8 +122,26 @@
     box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
 
 }
+.city_img_bg_right {
+    position: absolute;
+    width: 5.5em;
+    height: 5.5em;
+    background-color: #1396D0;
+    border-radius: 50%;
+    right: -2.275em;
+    bottom: 0.05em;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
 
-.city_img {
+}
+
+.small_city_img_bg:nth-child(odd) {
+    right: -2.275em;
+
+}
+
+.city_img_left {
     position: absolute;
     width: 5em;
     height: 5em;
@@ -97,13 +153,41 @@
     z-index: 10;
 }
 
-.city_arrow_link {
+.city_img_right {
     position: absolute;
-    width: 2.5em;
-    height: 2.5em;
+    width: 5em;
+    height: 5em;
+    background-color: #1396D0;
+    border: 6px solid #13B3D0;
+    border-radius: 50%;
+    right: -2.05em;
+    bottom: 0.3em;
+    z-index: 10;
+}
+
+.city_arrow_link_left {
+    position: absolute;
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     right: -1em;
     z-index: 10;
+    top: 1.5em;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    
+}
+
+.city_arrow_link_right {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    left: -1em;
+    z-index: 10;
+    top: 1.5em;
     background-color: white;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
@@ -114,7 +198,49 @@
 .fa-chevron-right {
     position: absolute;
     color:rgb(192, 31, 31);
-    font-size: 2em;
+    font-size: 1.5em;
     text-shadow: none;
-    left: 0.3em;
+    left: 0.4em;
+    bottom: 0.2em;
+    border-radius: 50%;
+}
+
+.fa-chevron-left {
+    position: absolute;
+    color:rgb(192, 31, 31);
+    font-size: 1.5em;
+    text-shadow: none;
+    right: 0.4em;
+    bottom: 0.2em;
+    transform: rotate(180deg);
+}
+
+#cloud_right {
+    position: absolute;
+    right: -0.5em;
+    top: 0em;
+    font-size: 7em;
+    color: rgb(255, 184, 53);
+    transform: rotate(100deg);
+    z-index: -2;
+    text-shadow: none;
+
+}
+
+#cloud_left {
+    position: absolute;
+    left: -0.5em;
+    top: 0em;
+    z-index: -2;
+    transform: rotate(-250deg);
+    font-size: 7em;
+    color: rgb(255, 184, 53);
+    text-shadow: none;
+
+}
+
+.short_desc {
+    font-size: 0.5em;
+    font-weight: normal;
+    margin-bottom: 0;
 }

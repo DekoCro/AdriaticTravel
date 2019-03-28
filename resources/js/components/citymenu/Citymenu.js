@@ -41,7 +41,7 @@ export default class Citymenu extends Component {
             this.state.items.forEach(item => {
                 countries.push(
                     <section key={item.id}>
-                        <div className="city_menu_card" key={item.id}>
+                        <div className={!this.state.toggle ? 'city_menu_card' : ' hide_menu'} key={item.id}>
                             <h1 className="city_menu_name">{item.name}</h1>
                             <img className="city_menu_img" src={`/img/cities/${item.image}`} />
                         </div>
@@ -56,7 +56,7 @@ export default class Citymenu extends Component {
             });
             content = countries;
         } else {
-            content = "Loading!";
+            content = <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>;
         }
 
         if(this.state.isLoaded) {
@@ -69,11 +69,10 @@ export default class Citymenu extends Component {
                         <div className="header_text">
                             <h5>{item.country_name}</h5>
                             <p>{item.country_filename}</p>
-                            {/* <h6>{item.country_slogan}</h6> */}
                         </div>
                     </div>
                     <div className="expand" onClick={this.expandView.bind(this)}><span>About {item.name} <i className={!this.state.toggle ? "fas fa-arrow-circle-down expand_arrow" : "fas fa-arrow-circle-up expand_arrow" }></i></span></div>
-                    <div className={!this.state.toggle ? 'headerAbout' : 'headerAbout city_description'}><br /><span>{item.description}<br /></span></div>
+                    <div className={!this.state.toggle ? 'headerAbout' : 'headerAbout city_description'}><br /><span className="descr">{item.description}<br /></span></div>
                     </section>
                 )
             });

@@ -1,12 +1,19 @@
 :root {
   --mainColor: yellow;
 }
-$mainfont: 'Roboto', 'sans-serif';
+$mainfont: "Playfair Display", serif;
 
+html {
+  background-image: url('/Users/dekolipotic/Desktop/Bootcamp/projects/We_Love_Travel/public/img/html.jpg');
+  // background: #000000;
+}
 @import 'country';
 @import 'city';
 @import 'citymenu';
 @import 'cost';
+@import 'food';
+@import 'places';
+@import 'accomodation';
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
@@ -17,7 +24,120 @@ $mainfont: 'Roboto', 'sans-serif';
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-// ---Login form---
+body {
+  width: 22.2em;
+  margin: 0 auto;
+}
+.hidden_link {
+  opacity: 0;
+}
+.nav_btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 14em;
+  margin-left: .5em;
+}
+.back_click {
+  font-size: 2.5em;
+  color: #615D5D;
+  cursor: pointer;
+}
+#complete_login_form {
+  font-family: 'Roboto', sans-serif;
+}
+#resetEmailForm {
+  height: 30vh;
+  font-family: 'Roboto', sans-serif;
+}
+.reset_headline {
+  color: white;
+  width: 90%;
+  margin: .5em auto;
+}
+#reset_click {
+  color: white;
+  margin: .3em;
+}
+// ---Css Loader---
+.loader {
+  z-index: 9999;
+}
+.loader.hidden {
+  display: none;
+}
+.lds-ellipsis {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.34);
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.lds-ellipsis div {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+// --ROOT COMPONENT--
+.background {
+  background-color: white;
+  margin: 0;
+  height: 100%;
+}
+#root {
+  min-height: 90vh;
+  background: white;
+}
+
+// ---LOGIN FORM---
 
 .facebook_btn,
 .google_btn,
@@ -25,27 +145,13 @@ $mainfont: 'Roboto', 'sans-serif';
   color: white;
   width: 90%;
   margin: .25rem auto;
-  font-family: $mainfont;
   font-weight: bold;
   border-radius: 0% !important;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 .forgot_link {
   margin: .5rem auto;
   width: 90%;
-  font-family: $mainfont;
   color: lightgray;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 .google_btn {
   background-color: #e94833;
@@ -66,15 +172,8 @@ $mainfont: 'Roboto', 'sans-serif';
   color: black;
   width: 90%;
   margin: .25rem auto;
-  font-family: $mainfont;
   font-weight: bold;
   border-radius: 0% !important;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 .user-data {
   display: flex;
@@ -82,12 +181,6 @@ $mainfont: 'Roboto', 'sans-serif';
   justify-content: center;
   align-items: center;
   width: 90%;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 form {
   display: flex;
@@ -109,32 +202,17 @@ form {
     color: #3789bc;
     width: 90%;
     margin: .5rem auto;
-    font-family: $mainfont;
     font-weight: bold;
     border-radius: 0% !important;
-    @media all and (min-width: 480px) and (max-width: 768px) {
-      width: 80%;
-    }
-    @media all and (min-width: 769px) {
-      width: 70%;
-    }
   }
   .checkbox {
     color: white;
     width: 90%;
     margin: 0 auto;
-    font-family: $mainfont;
     font-weight: bold;
-    @media all and (min-width: 480px) and (max-width: 768px) {
-      width: 80%;
-    }
-    @media all and (min-width: 769px) {
-      width: 70%;
-    }
   }
 }
 .login_instructions {
-  font-family: $mainfont;
   font-size: 1em;
   color: white;
   text-align: center;
@@ -159,17 +237,11 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 3rem;
-  padding-top: 4rem;
+  padding-top: 5rem;
   position: relative;
+  margin-bottom: 7em;
   img {
-    width: 70vw;
-    @media all and (min-width: 480px) and (max-width: 768px) {
-      width: 50vw;
-    }
-    @media all and (min-width: 769px) {
-      width: 30vw;
-    }
+    width: 70%;
   }
   h1, h2 {
     font-family: 'Rust';
@@ -197,52 +269,26 @@ form {
   align-items: center;
   width: 90%;
   margin-bottom: 1.5rem;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 .register_input {
   width: 90%;
   margin: .25rem auto;
-  font-family: $mainfont;
   font-weight: bold;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 .register_submit {
   background-color: #fff;
   color: #32a5ed;
   width: 90%;
   margin: .25rem auto;
-  font-family: $mainfont;
   font-weight: bold;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80%;
-  }
-  @media all and (min-width: 769px) {
-    width: 70%;
-  }
 }
 
 // --Wrapper page--
 .container_box {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   background-color: #3789bc;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80vw;
-  }
-  @media all and (min-width: 769px) {
-    width: 60vw;
-  }
 }
 footer {
   background-color: lightgray;
@@ -251,14 +297,8 @@ footer {
   justify-content: flex-end;
   text-align: right;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   padding: 1rem;
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 80vw;
-  }
-  @media all and (min-width: 769px) {
-    width: 60vw;
-  }
   a {
     margin: 0 1em;
   }
@@ -312,17 +352,11 @@ footer {
 #menuToggle {
   display: block;
   position: absolute;
-  top: 1.5em;
+  top: 1.9em;
   right: 1em; 
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
-  @media all and (min-width: 769px) and (max-width: 1024px) {
-    top: 2em;
-  }
-  @media all and (min-width: 1025px) {
-    top: 2.4em;
-  }
   
   input {
     display: block;
@@ -389,17 +423,6 @@ footer {
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  @media all and (min-width: 480px) and (max-width: 768px) {
-    width: 9em;
-  }
-  @media all and (min-width: 769px) and (max-width: 1024px) {
-    width: 10em;
-    margin-top: 6px;
-  }
-  @media all and (min-width: 1025px) {
-    width: 10em;
-    margin-top: 10px;
-  }
   li {
     padding: 0;
     font-size: 1em;
@@ -413,7 +436,10 @@ footer {
 #navbarSupportedContent {
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
+  }
+  
+.reset_box {
+  flex-direction: column;
+  width: 100%;
 }
-

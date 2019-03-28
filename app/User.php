@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'nation'
     ];
 
     /**
@@ -31,16 +31,6 @@ class User extends Authenticatable
     public function accomodation_rewiews()
     {
         return $this->hasMany('App\Accomodation');
-    }
-
-    public function city_rewiews()
-    {
-        return $this->hasMany('App\City');
-    }
-
-    public function place_rewiews()
-    {
-        return $this->hasMany('App\Place');
     }
 
     public function food_rewiews()

@@ -22,12 +22,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::view('/{path?}', 'layouts/app');
-
 Route::view('/countries', 'welcome');
 Route::view('/countries/{id}/cities', 'welcome');
 Route::view('/cities/{city_id}', 'welcome');
 Route::view('/cities/{city_id}/food', 'welcome');
+Route::view('/cities/{city_id}/food/{food_id}', 'welcome');
+Route::view('/cities/{city_id}/accomodation/{acc_id}', 'welcome');
 Route::view('/cities/{city_id}/accomodation', 'welcome');
 Route::view('/cities/{city_id}/places', 'welcome');
 Route::view('/cities/{city_id}/cost', 'welcome');

@@ -1,0 +1,65 @@
+.places_box {
+    margin-top: 7vh;
+    .place_heading {
+        text-align: center;
+        font-family: $mainfont;
+        width: 100%;
+        background-color: #f0c545;
+        color: white;
+        padding: .5em;
+    }
+    .place_heading_icon {
+        font-size: 1em;
+    }
+}
+.places_card {
+    margin-bottom: 1em;
+    .place_bar {
+        width: 90%;
+        background-color: white;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-shadow: 0px 0px 5px 3px rgba(184,173,184,1);
+        -moz-box-shadow: 0px 0px 5px 3px rgba(184,173,184,1);
+        box-shadow: 0px 0px 5px 3px rgba(184,173,184,1);
+        padding: .4em;
+        border-radius: 5px;
+        .place_row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 1em;
+            -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            border-radius: 25px;
+            background-color: #f0c545;
+            .place_icon {
+                width: 3em;
+                height: 3em;
+                border-radius: 50%;
+                background-color: white;
+                -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+                margin-right: 1em;
+            }
+            .place_name {
+                font-size: 1.2em; 
+                margin: 0;
+                color: white;
+            }
+        }
+        .place_column {
+            display: flex;
+            flex-direction: column;
+            .place_description {
+                font-size: 1em; 
+            }
+            .place_location {
+                font-size: .8em; 
+            }
+        }
+    }
+}

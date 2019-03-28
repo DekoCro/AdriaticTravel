@@ -65901,10 +65901,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _countries_Countries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./countries/Countries */ "./resources/js/components/countries/Countries.js");
 /* harmony import */ var _cities_Cities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cities/Cities */ "./resources/js/components/cities/Cities.js");
 /* harmony import */ var _food_Food__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./food/Food */ "./resources/js/components/food/Food.js");
-/* harmony import */ var _acc_Acc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./acc/Acc */ "./resources/js/components/acc/Acc.js");
-/* harmony import */ var _places_Places__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./places/Places */ "./resources/js/components/places/Places.js");
-/* harmony import */ var _cost_Cost__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cost/Cost */ "./resources/js/components/cost/Cost.js");
-/* harmony import */ var _citymenu_Citymenu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./citymenu/Citymenu */ "./resources/js/components/citymenu/Citymenu.js");
+/* harmony import */ var _food_Restaurant__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./food/Restaurant */ "./resources/js/components/food/Restaurant.js");
+/* harmony import */ var _acc_Acc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./acc/Acc */ "./resources/js/components/acc/Acc.js");
+/* harmony import */ var _acc_Hotel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./acc/Hotel */ "./resources/js/components/acc/Hotel.js");
+/* harmony import */ var _places_Places__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./places/Places */ "./resources/js/components/places/Places.js");
+/* harmony import */ var _cost_Cost__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./cost/Cost */ "./resources/js/components/cost/Cost.js");
+/* harmony import */ var _citymenu_Citymenu__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./citymenu/Citymenu */ "./resources/js/components/citymenu/Citymenu.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_12__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65922,6 +65926,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
 
 
 
@@ -65947,11 +65954,18 @@ function (_Component) {
 
   _createClass(Root, [{
     key: "render",
+    // componentDidMount() {
+    //   axios.get('http://final.localhost:8080/api/user')
+    //   .then(r => {
+    //     console.log(r.data)
+    //   })
+    // }
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "background"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/countries"
+        to: "/countries",
+        className: "hidden_link"
       }, "Countries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/",
@@ -65960,20 +65974,26 @@ function (_Component) {
         path: "/countries/:id/cities",
         component: _cities_Cities__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/cities/:id/food/:restaurant_id",
+        component: _food_Restaurant__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/cities/:id/food",
         component: _food_Food__WEBPACK_IMPORTED_MODULE_5__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/cities/:id/accomodation/:hotel_id",
+        component: _acc_Hotel__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/cities/:id/accomodation",
-        component: _acc_Acc__WEBPACK_IMPORTED_MODULE_6__["default"]
+        component: _acc_Acc__WEBPACK_IMPORTED_MODULE_7__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/cities/:id/places",
-        component: _places_Places__WEBPACK_IMPORTED_MODULE_7__["default"]
+        component: _places_Places__WEBPACK_IMPORTED_MODULE_9__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/cities/:id/cost",
-        component: _cost_Cost__WEBPACK_IMPORTED_MODULE_8__["default"]
+        component: _cost_Cost__WEBPACK_IMPORTED_MODULE_10__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/cities/:id",
-        component: _citymenu_Citymenu__WEBPACK_IMPORTED_MODULE_9__["default"]
+        component: _citymenu_Citymenu__WEBPACK_IMPORTED_MODULE_11__["default"]
       }))));
     }
   }]);
@@ -65998,7 +66018,138 @@ if (document.querySelector('#root')) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Acc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Food; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var Food =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Food, _Component);
+
+  function Food(props) {
+    var _this;
+
+    _classCallCheck(this, Food);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Food).call(this, props));
+    _this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+    return _this;
+  }
+
+  _createClass(Food, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var cityId = this.props.match.params.id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation")).then(function (response) {
+        _this2.setState({
+          isLoaded: true,
+          items: response.data
+        });
+
+        console.log(response);
+      }).catch(function (error) {
+        return console.log(error);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var content = "";
+      var city = "";
+
+      if (this.state.isLoaded) {
+        var countries = [];
+        this.state.items.forEach(function (item) {
+          countries.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "hotel_card",
+            key: item.id
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+            className: "hotel_name",
+            to: "/cities/".concat(item.city_id, "/accomodation/").concat(item.id)
+          }, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "hotel_img",
+            src: "/img/accomodation/".concat(item.image)
+          })));
+        });
+        content = countries;
+      } else {
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+      }
+
+      if (this.state.isLoaded) {
+        var title = [];
+        title.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "city_menu_card",
+          key: this.state.items[0].id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "city_menu_name"
+        }, this.state.items[0].city_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "city_menu_img",
+          src: "/img/cities/".concat(this.state.items[0].city_image)
+        })));
+        city = title;
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "acc_box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), city, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "acc_heading"
+      }, "Our top pick: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-bed acc_heading_icon"
+      })), content);
+    }
+  }]);
+
+  return Food;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/acc/Hotel.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/acc/Hotel.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Hotel; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -66024,38 +66175,49 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Acc =
+var Hotel =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(Acc, _Component);
+  _inherits(Hotel, _Component);
 
-  function Acc(props) {
+  function Hotel(props) {
     var _this;
 
-    _classCallCheck(this, Acc);
+    _classCallCheck(this, Hotel);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Acc).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Hotel).call(this, props));
     _this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      text_value: "",
+      rating_value: 0,
+      title: "",
+      reviews: []
     };
     return _this;
   }
 
-  _createClass(Acc, [{
+  _createClass(Hotel, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
       var cityId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation")).then(function (response) {
+      var accId = this.props.match.params.hotel_id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation/").concat(accId)).then(function (response) {
         _this2.setState({
           isLoaded: true,
           items: response.data
         });
-
-        console.log(response);
+      }).catch(function (error) {
+        return console.log(error);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/accomodation/").concat(accId, "/reviews")).then(function (response) {
+        _this2.setState({
+          isLoaded: true,
+          reviews: response.data
+        });
       }).catch(function (error) {
         return console.log(error);
       });
@@ -66063,26 +66225,152 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var content = "";
+      var _this3 = this;
 
-      if (this.state.isLoaded) {
-        var countries = [];
-        this.state.items.forEach(function (item) {
-          countries.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "card-body",
-            key: item.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, item.name)));
-        });
-        content = countries;
-      } else {
-        content = "Loading!";
+      var content = "";
+      var cityId = this.props.match.params.id;
+      var accId = this.props.match.params.hotel_id;
+      var stars = [];
+
+      var _loop = function _loop(i) {
+        stars.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: _this3.state.rating_value < i ? 'far fa-star' : 'fa fa-star golden',
+          key: i,
+          name: "rating",
+          onClick: function onClick() {
+            _this3.setState({
+              rating_value: i
+            });
+          }
+        }));
+      };
+
+      for (var i = 1; i < 6; i++) {
+        _loop(i);
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, content);
+      if (this.state.isLoaded) {
+        var foods = [];
+        foods.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+          key: this.state.items.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "food_card"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "food_name"
+        }, this.state.items.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "food_img",
+          src: "/img/accomodation/".concat(this.state.items.image)
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "food_stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-map-marker-alt stats"
+        }), "  Location: ", this.state.items.city_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-money-bill stats"
+        }), " Average price: ", this.state.items.avg_price, " \u20AC ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: function onSubmit(event) {
+            event.preventDefault();
+            axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/cities/".concat(cityId, "/accomodation/").concat(accId), {
+              rating: _this3.state.rating_value,
+              review: _this3.state.text_value,
+              title: _this3.state.title
+            }).then(function (response) {
+              var reviews = _this3.state.reviews;
+              reviews.push(response.data);
+
+              _this3.setState({
+                reviews: reviews
+              });
+            });
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+          className: "hotel_header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-pencil-alt rate_icon"
+        }), " Rate and review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "star_rating"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user_message"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-user-circle user_icon"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.state.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your review will be posted publicly on the web."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "star_box"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rate here:"), stars)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "inputBox"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          name: "title",
+          type: "text",
+          onChange: function onChange(event) {
+            _this3.setState({
+              title: event.target.value
+            });
+          },
+          value: this.state.title,
+          placeholder: "Title ex.excellent, good, terrible"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          name: "review",
+          type: "text",
+          rows: "5",
+          cols: "40",
+          onChange: function onChange(event) {
+            _this3.setState({
+              text_value: event.target.value
+            });
+          },
+          value: this.state.text_value,
+          placeholder: "Describe your experience..."
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "submit",
+          value: "Post",
+          className: "post_hotel"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)));
+        content = foods;
+      } else {
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+      }
+
+      var review = ""; // let user_star = [];
+      // for(let i = 0; i < this.state.rating_value; i++) {
+      //     user_star.push(
+      //     <i className="fa fa-star user_golden_star" key={i}></i>
+      //     )
+      // }
+
+      if (this.state.isLoaded) {
+        var user_ex = [];
+        this.state.reviews.forEach(function (item) {
+          user_ex.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: item.id,
+            className: "review_list"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "hotel_username"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "far fa-user-circle other_user_icon"
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.user ? item.user.name : 'Unknown user')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+            className: "rews"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+            className: "review_rating"
+          }, "Rating: ", item.rating, " out of 5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+            className: "review_top"
+          }, item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "review_text"
+          }, item.review))));
+        });
+        review = user_ex;
+      } else {
+        review = "Loading!";
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "food_box"
+      }, content, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "review_title"
+      }, "Reviews:"), review);
     }
   }]);
 
-  return Acc;
+  return Hotel;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -66105,6 +66393,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -66140,12 +66432,20 @@ function (_Component) {
     _this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      toggle: false
     };
     return _this;
   }
 
   _createClass(Cities, [{
+    key: "expandView",
+    value: function expandView() {
+      this.setState(_objectSpread({}, this.state, {
+        toggle: !this.state.toggle
+      }));
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -66165,12 +66465,16 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var countryId = this.props.match.params.id;
-      var content = ""; // console.log(this.state.items)
+      var _this3 = this;
+
+      var content = "";
+      var country = "";
 
       if (this.state.isLoaded) {
+        var index = 0;
         var countries = [];
         this.state.items.forEach(function (item) {
+          index += 1;
           countries.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             "data-aos": "fade-up",
             className: "city_card",
@@ -66179,34 +66483,72 @@ function (_Component) {
             "data-aos-anchor-placement": "top-bottom",
             key: item.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "city_img",
+            className: "city_img_".concat(index % 2 == 0 ? 'left' : 'right'),
             src: "/img/cities/".concat(item.image)
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "small_city_img_bg"
+            className: "city_img_bg_".concat(index % 2 == 0 ? 'left' : 'right')
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-            className: "city_arrow_link",
+            className: "city_arrow_link_".concat(index % 2 == 0 ? 'left' : 'right'),
             to: "/cities/".concat(item.id)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-            class: "fas fa-chevron-right"
+            className: "fas fa-chevron-".concat(index % 2 == 0 ? 'left' : 'right')
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-            className: "city_link",
+            className: "city_link_".concat(index % 2 == 0 ? 'left' : 'right'),
             to: "/cities/".concat(item.id)
-          }, item.name)));
+          }, item.name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "short_desc"
+          }, item.short_desc))));
         });
         content = countries;
       } else {
-        content = "Loading!";
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header_city"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-globe-europe globe_icon"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Choose City")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "headerShadow"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "headerShadow"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      if (this.state.isLoaded) {
+        var title = [];
+        this.state.items.forEach(function (item) {
+          title.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+            key: item.id,
+            className: !_this3.state.toggle ? "" : "dropdown"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "menu_header",
+            key: item.id
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "country_icon",
+            src: "/img/icons/".concat(item.country_icon)
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "header_text"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, item.country_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.country_filename))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "expand",
+            onClick: _this3.expandView.bind(_this3)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "About ", item.country_name, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: !_this3.state.toggle ? "fas fa-arrow-circle-down expand_arrow" : "fas fa-arrow-circle-up expand_arrow"
+          }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: !_this3.state.toggle ? 'headerAbout' : 'headerAbout city_description'
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "country_stats"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "dropdown_heading"
+          }, "Population:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-users"
+          }), "  ", item.country_population)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "dropdown_heading"
+          }, "Local currency:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-money-bill"
+          }), "  ", item.country_currency))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "country_facts"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "extended_heading"
+          }, "Facts about ", item.country_name), item.country_quote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "extended_heading"
+          }, "Adriatic coast of ", item.country_name, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, item.country_description, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))));
+        });
+        country = title;
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, country, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "city_box"
       }, content));
     }
@@ -66319,7 +66661,7 @@ function (_Component) {
           countries.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
             key: item.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "city_menu_card",
+            className: !_this3.state.toggle ? 'city_menu_card' : ' hide_menu',
             key: item.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
             className: "city_menu_name"
@@ -66352,7 +66694,9 @@ function (_Component) {
         });
         content = countries;
       } else {
-        content = "Loading!";
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
       if (this.state.isLoaded) {
@@ -66376,7 +66720,9 @@ function (_Component) {
             className: !_this3.state.toggle ? "fas fa-arrow-circle-down expand_arrow" : "fas fa-arrow-circle-up expand_arrow"
           }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: !_this3.state.toggle ? 'headerAbout' : 'headerAbout city_description'
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, item.description, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "descr"
+          }, item.description, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))));
         });
         country = title;
       }
@@ -66490,11 +66836,13 @@ function (_Component) {
             className: "currency_heading"
           }, "Currency:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "country_currency"
-          }, item.country_currency))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Daily Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Budget: Less than ", item.low), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, item.min_cost)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Midrange: ", item.mid), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, item.middle_cost)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Top end: More than ", item.top), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, item.max_cost)))));
+          }, item.country_currency))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Daily Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Budget: Less than ", item.low), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, item.min_cost)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Midrange: ", item.mid), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, item.middle_cost)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Top end: More than ", item.top), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, item.max_cost)))));
         });
         content = countries;
       } else {
-        content = "Loading!";
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66605,7 +66953,9 @@ function (_Component) {
         });
         content = countries;
       } else {
-        content = "Loading!";
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66643,6 +66993,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66660,6 +67011,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -66704,25 +67056,295 @@ function (_Component) {
     key: "render",
     value: function render() {
       var content = "";
+      var city = "";
 
       if (this.state.isLoaded) {
         var countries = [];
         this.state.items.forEach(function (item) {
           countries.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "card-body",
+            className: "food_card",
             key: item.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, item.name)));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+            className: "food_name",
+            to: "/cities/".concat(item.city_id, "/food/").concat(item.id)
+          }, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "food_img",
+            src: "/img/food/".concat(item.image)
+          })));
         });
         content = countries;
       } else {
-        content = "Loading!";
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, content);
+      if (this.state.isLoaded) {
+        var title = [];
+        title.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "city_menu_card",
+          key: this.state.items[0].id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "city_menu_name"
+        }, this.state.items[0].city_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "city_menu_img",
+          src: "/img/cities/".concat(this.state.items[0].city_image)
+        })));
+        city = title;
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "food_box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), city, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "food_heading"
+      }, "Our top pick: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-utensils food_heading_icon"
+      })), content);
     }
   }]);
 
   return Food;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/food/Restaurant.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/food/Restaurant.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Restaurant; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Restaurant =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Restaurant, _Component);
+
+  function Restaurant(props) {
+    var _this;
+
+    _classCallCheck(this, Restaurant);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Restaurant).call(this, props));
+    _this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
+      text_value: "",
+      rating_value: 0,
+      title: "",
+      reviews: []
+    };
+    return _this;
+  }
+
+  _createClass(Restaurant, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var cityId = this.props.match.params.id;
+      var foodId = this.props.match.params.restaurant_id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/food/").concat(foodId)).then(function (response) {
+        _this2.setState({
+          isLoaded: true,
+          items: response.data
+        });
+
+        console.log(response);
+      }).catch(function (error) {
+        return console.log(error);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://final.localhost:8080/api/cities/".concat(cityId, "/food/").concat(foodId, "/reviews")).then(function (response) {
+        _this2.setState({
+          isLoaded: true,
+          reviews: response.data
+        });
+
+        console.log(response);
+      }).catch(function (error) {
+        return console.log(error);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var content = "";
+      var cityId = this.props.match.params.id;
+      var foodId = this.props.match.params.restaurant_id;
+      var stars = [];
+
+      var _loop = function _loop(i) {
+        stars.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: _this3.state.rating_value < i ? 'far fa-star' : 'fa fa-star golden',
+          key: i,
+          name: "rating",
+          onClick: function onClick() {
+            _this3.setState({
+              rating_value: i
+            });
+          }
+        }));
+      };
+
+      for (var i = 1; i < 6; i++) {
+        _loop(i);
+      }
+
+      if (this.state.isLoaded) {
+        var foods = [];
+        foods.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+          key: this.state.items.id + 100
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "food_card"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "food_name"
+        }, this.state.items.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "food_img",
+          src: "/img/food/".concat(this.state.items.image)
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "food_stats"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-map-marker-alt stats"
+        }), " Location: ", this.state.items.city_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-star-half-alt stats"
+        }), " Rating: ", this.state.items.rating, "/5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-hamburger stats"
+        }), " ", this.state.items.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          onSubmit: function onSubmit(event) {
+            event.preventDefault();
+            axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/cities/".concat(cityId, "/food/").concat(foodId), {
+              rating: _this3.state.rating_value,
+              review: _this3.state.text_value,
+              title: _this3.state.title
+            }).then(function (response) {
+              var reviews = _this3.state.reviews;
+              reviews.push(response.data);
+
+              _this3.setState({
+                reviews: reviews
+              });
+            });
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+          className: "food_username"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-pencil-alt rate_icon"
+        }), " Rate and review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "star_rating"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user_message"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-user-circle user_icon"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.state.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your review will be posted publicly on the web."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "star_box"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Rate here:"), stars)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "inputBox"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          name: "title",
+          type: "text",
+          onChange: function onChange(event) {
+            _this3.setState({
+              title: event.target.value
+            });
+          },
+          value: this.state.title,
+          placeholder: "Title (ex.excellent, good, terrible)"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          name: "review",
+          type: "text",
+          rows: "5",
+          cols: "40",
+          onChange: function onChange(event) {
+            _this3.setState({
+              text_value: event.target.value
+            });
+          },
+          value: this.state.text_value,
+          placeholder: "Describe your experience..."
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "submit",
+          value: "Post",
+          className: "post_btn"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)));
+        content = foods;
+      } else {
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+      }
+
+      var review = ""; // let user_star = [];
+      // for(let i = 0; i < this.state.rating_value; i++) {
+      //     user_star.push(
+      //     <i className="fa fa-star user_golden_star" key={i}></i>
+      //     )
+      // }
+
+      if (this.state.isLoaded) {
+        var user_ex = [];
+        this.state.reviews.forEach(function (item) {
+          user_ex.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: item.id,
+            className: "review_list"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "far fa-user-circle other_user_icon"
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.user ? item.user.name : 'Unknown user')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+            className: "rews"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+            className: "review_rating"
+          }, "Rating: ", item.rating, " out of 5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+            className: "review_top"
+          }, item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+            className: "review_text"
+          }, item.review))));
+        });
+        review = user_ex;
+      } else {
+        review = "Loading!";
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "food_box"
+      }, content, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "review_title"
+      }, "Reviews:"), review);
+    }
+  }]);
+
+  return Restaurant;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -66809,16 +67431,39 @@ function (_Component) {
         var countries = [];
         this.state.items.forEach(function (item) {
           countries.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "card-body",
+            className: "places_card",
             key: item.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, item.name)));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "place_bar"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "place_row"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "place_icon",
+            src: "/img/places/".concat(item.image)
+          }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+            className: "place_name"
+          }, item.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "place_column"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+            className: "place_description"
+          }, item.about), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+            className: "place_location"
+          }, "Location: ", item.location)))));
         });
         content = countries;
       } else {
-        content = "Loading!";
+        content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "lds-ellipsis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, content);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "places_box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "place_heading"
+      }, "Our top pick: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-map-marker-alt place_heading_icon"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), content);
     }
   }]);
 

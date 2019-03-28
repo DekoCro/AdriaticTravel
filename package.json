@@ -27,7 +27,9 @@
     "dependencies": {
         "aos": "^2.3.4",
         "doctrine-dbal": "^0.1.2",
+        "hover.css": "^2.3.2",
         "react-router": "^4.3.1",
-        "react-router-dom": "^4.3.1"
+        "react-router-dom": "^4.3.1",
+        "react-star-rating-component": "^1.4.1"
     }
 }
